@@ -70,7 +70,8 @@ tbd
 
 ### Unit Testing
 
-tbd
+[Snapshot-based testing with Jest](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
+[Testing with shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html)
 
 ### Other Fun Stuff
 
