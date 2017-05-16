@@ -54,25 +54,44 @@ Other Details
 Stuff To Do (Better)
 * There's no global styling yet.
 
-### Data/ Services Layer
+### State/ Data/ Services Layer
 
 Credit to [this awesome MobX tutorial](https://mobx.js.org/getting-started.html).
 
-tbd
+I'm sure Redux is great. Lots of folks swear by it for scaling huge projects with lots of developers. I like a well-thought-out state layer as much as anyone, but I found my brain exhausted by Redux, and in particular, thinking about how I would explain it to someone else.
+
+Really all I wanted was something that would a) maintain a global state, and b) automatically force components to react to changes in that state. That's basically all MobX does. It does it using a shared store concept similar to what's often done in native iOS.
+
+The example so far includes the TimelineContainer and DetailContainer reading messages from the stores/ChatStore.js. In particular TimelineContainer is actually reacting to changes (though there are no real changes happening yet), by observing the ChatStore using ES.next decorators (.e.g, `@observer`). There's a case to be made that a library isn't even necessary yet. Take away the decorators, and ChatStore is just a plain old singleton that could be used anywhere (TimelineContainer would have to manually refresh itself somehow in such a case). The biggest win is that TimelineContainer can read from the same place for both an entire timeline and a single message without having to be aware of each other.
+
+Stuff To Do (Better)
+* Demonstrate changing data
+* Better strategy for referencing single records in the observable (list) variable in a store. For instance, indexing with dictionaries may make sense.
+* Wire up mock web services. Interested in finding a best practice for dependency injection of web request components into the store, so the store can be unit-tested. I'm too used to Angular requiring this ;-).
 
 ### Navigation Containers
 
-tbd
+Two types of navigation containers are demonstrated- StackNavigator, and TabNavigator- and both at this point are in layouts/index. Timeline demonstrates sending messages to navigation in order to push a new view (in this case, showing a Detail view of an individual post). The TabNavigator demonstrates how the tab bar can react to changing focus.
+
+Stuff To Do (Better)
+* Move timeline and settings (when I make it) stack navigation to separate layouts subfolders, so its separated from the tab navigation.
+* Tab bar icons can be arbitrary React views. This can facilitate stuff like a number badge on a tab. I have an example of this elsewhere and would like to add it here.
 
 ### Libraries with Native Linking
 
-tbd
+The tab bar icons use react-native-vector-icons. Among other things, these require .ttf files to actually be included in the iOS/ Android native projects. `react-native link` actually does this for us. It was failing for about a week because the latest version of the library had issues with a tvOS build scheme or something like that. It seems inevitable that eventually libraries with more complex native integration will need to be added. Since there's reasons to recreate the iOS/ Android projects (e.g., new version of XCode), I think it's important to stick with stuff that reliably works with `react-native link`.
+
+### iOS/ Android-specific controls
+
+This is accomplished simply with the .ios/ .android sub-extensions (is that a term?). So, button.android.js is used for Android and button.ios.js is used for iOS. Need to add an example of this in action.
 
 ### Unit Testing
 
 [Snapshot-based testing with Jest](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
 [Testing with shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html)
 
+More here soon. I started down the snapshot-based testing, got one to work (may have broken it since then). It looks great, pretty easy to work with. The part I worry about is, say, changing a button and having that invalidate the snapshot of everything that used a button. Therefore, I wonder if shallow rendering (which doesn't render sub-components) could work with snapshotting. Each test would take a snapshot of a shallow render, failing if the code has changed the shallow render since the snapshot. That would avoid the issue of invalidating many tests with a single component change.
+
 ### Other Fun Stuff
 
-tbd
+* check app/index.js for warning suppressions due to react-navigation using deprecated libraries. Stuff is churning so quick that this seems to inevitably happen.
