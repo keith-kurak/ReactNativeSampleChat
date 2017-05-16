@@ -13,7 +13,7 @@ A few notes:
 ## Running the Sample
 
 ### Prerequisites
-* You did all (https://facebook.github.io/react-native/docs/getting-started.html "this stuff") to get React Native working.
+* You did all [this stuff](https://facebook.github.io/react-native/docs/getting-started.html) to get React Native working.
 
 ### Steps (iOS simulator)
 1. Run `npm install`
