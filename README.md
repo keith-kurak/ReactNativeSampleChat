@@ -8,7 +8,7 @@ There's plenty of React and React Native tutorials out there that exercise a par
 A few notes:
 * Most of this stuff I haven't just made up. I try to give credit where it's due.
 * This app is intentionally shallow and ugly. I build just enough to demonstrate the concept and precious little more than that.
-* I will go into agonizing detail about things you might find trivial (looking at you, Mr. Level 97 React Wizard). This is not for you, but a reflection of stupid questions I've stumbled on and smart questions asked of me when trying to teach this stuff.
+* I will go into agonizing detail about things you might find trivial (looking at you, Mr. Level 97 React Wizard). This is a reflection of stupid questions I've stumbled on and smart questions asked of me when trying to help others with this stuff.
 
 ## Running the Sample
 
@@ -21,7 +21,7 @@ A few notes:
 3. Run `react-native run-ios`
 
 ### Steps (Android simulator)
-I know they're almost the same, but I haven't run this on Android yet (always a bear installing that ), so let me make sure it works first.
+I know they're almost the same, but I haven't run this on Android yet (always a bear installing that, like to put it off to the last minute), so let me make sure it works first.
 
 ## Concepts
 
