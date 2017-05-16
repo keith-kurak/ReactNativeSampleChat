@@ -88,6 +88,7 @@ This is accomplished simply with the .ios/ .android sub-extensions (is that a te
 ### Unit Testing
 
 [Snapshot-based testing with Jest](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
+
 [Testing with shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html)
 
 More here soon. I started down the snapshot-based testing, got one to work (may have broken it since then). It looks great, pretty easy to work with. The part I worry about is, say, changing a button and having that invalidate the snapshot of everything that used a button. Therefore, I wonder if shallow rendering (which doesn't render sub-components) could work with snapshotting. Each test would take a snapshot of a shallow render, failing if the code has changed the shallow render since the snapshot. That would avoid the issue of invalidating many tests with a single component change.
