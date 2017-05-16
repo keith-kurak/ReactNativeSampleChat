@@ -58,7 +58,7 @@ Stuff To Do (Better)
 
 Credit to [this awesome MobX tutorial](https://mobx.js.org/getting-started.html).
 
-I'm sure Redux is great. Lots of folks swear by it for scaling huge projects with lots of developers. I like a well-thought-out state layer as much as anyone, but I found my brain exhausted by Redux, and in particular, thinking about how I would explain it to someone else.
+I'm sure Redux is great. Lots of folks swear by it for scaling huge projects with lots of developers. I like a well-thought-out state layer as much as anyone, but I found my brain exhausted by Redux, and in particular, thinking about how I would explain it to someone else. I really wish I could will myself to be more passionate about immutability/ pure functions. Someday I'll be able to sit with the cool kids.
 
 Really all I wanted was something that would a) maintain a global state, and b) automatically force components to react to changes in that state. That's basically all MobX does. It does it using a shared store concept similar to what's often done in native iOS.
 
