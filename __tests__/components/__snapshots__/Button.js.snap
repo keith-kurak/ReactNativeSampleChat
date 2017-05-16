@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render with text set matches snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderRadius": 30,
+        "height": 60,
+        "width": 60,
+      },
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "black",
+        "borderWidth": 0.5,
+      },
+      Object {
+        "margin": 5,
+      },
+    ]
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        Array [
+          Object {
+            "borderRadius": 30,
+            "height": 60,
+            "width": 60,
+          },
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+        ],
+      ]
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      some text
+    </Text>
+  </View>
+</View>
+`;
