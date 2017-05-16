@@ -10,7 +10,7 @@ import {
 } from 'react-navigation';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-//used directions here to add to XCode (cocoapod version): https://github.com/oblador/react-native-vector-icons
+//used directions here to add to XCode: https://github.com/oblador/react-native-vector-icons
 
 import {TimelineContainer, DetailContainer} from '../../routes/timeline';
 
