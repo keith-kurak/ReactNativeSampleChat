@@ -4,6 +4,11 @@ import {observer} from 'mobx-react';
 
 import TimelineRow from './TimelineRow.js';
 
+/**
+ * A list of messages.
+ * Uses a ListView, which behaves like a UITableViewController, smartly detecting when rows have and haven't changed, and not
+ * rendering all rows at once (unlike a ScrollView).
+ */
 @observer
 export default class Timeline extends React.Component {
 
@@ -11,6 +16,7 @@ export default class Timeline extends React.Component {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
+    //the DataSource is special in that it needs to be part of the state, even if the data is passed as props.
     this.state = {
       dataSource: ds
     };
