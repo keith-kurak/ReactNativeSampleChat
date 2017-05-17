@@ -6,6 +6,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {SettingsView} from '../../routes/settings';
 
+SettingsView.navigationOptions = {
+    title: 'Settings',
+  }
+
 const SettingsTab = StackNavigator({
   Home: {
     screen: SettingsView

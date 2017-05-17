@@ -7,9 +7,6 @@ import Timeline from './Timeline';
 
 @observer
 export default class TimelineContainer extends Component {
-  static navigationOptions = {
-    title: 'Timeline',
-  }
 
   render() {
     return (
