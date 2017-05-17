@@ -106,6 +106,10 @@ There's tons of stuff in in [NativeBase](https://nativebase.io/docs/v0.5.7/guide
 
 More here soon. I started down the snapshot-based testing, got one to work (may have broken it since then). It looks great, pretty easy to work with. The part I worry about is, say, changing a button and having that invalidate the snapshot of everything that used a button. Therefore, I wonder if shallow rendering (which doesn't render sub-components) could work with snapshotting. Each test would take a snapshot of a shallow render, failing if the code has changed the shallow render since the snapshot. That would avoid the issue of invalidating many tests with a single component change.
 
+### Automated UI Testing with Appium
+
+Give me time. I will get there! Someday.
+
 ### Other Fun Stuff
 
 * Check app/index.js for warning suppressions due to react-navigation using deprecated libraries. Stuff is churning so quick that this seems to inevitably happen.
