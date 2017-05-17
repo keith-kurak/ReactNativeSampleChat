@@ -29,13 +29,13 @@ I know they're almost the same, but I haven't run this on Android yet (always a 
 
 Credit to [Spencer Carli's Organizing a React Native Project](https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0)
 
-Major Points
+#### Major Points
 * Nothing of real consequence in the index.ios.js and index.android.js files. Instead, they point to the real starting point at app/index.js.
 * The components/ config/ routes/ layouts structure. I may not be following these exactly, but my interpretation of layouts is that it is for stitching together scenes inside navigation containers, like stacks, and tab bars. Meanwhile, routes are the individual scenes inside of each of those navigation containers (thinking about renaming this to scenes). If this were an iOS storyboard, maybe layouts would be the trunk/ forks in the navigation tree while routes would be branches.
 * Breaking up components/ groups of components into separate component, stylesheet, and index files. You can import from the index in a folder simply by referencing the folder (e.g., `../timeline`). This should make it easy to find the styles in effect for a component and limits the refactoring needed to be done when exports change. I don't think the article said one way or the other, but I've decided things are easier if these indexes are made up of non-default exports (so I don't have to worry about whether or not to use curly braces). routes/timeline (used in layouts/main) is the best example of this so far.
 * Added my own "stores" folder for MobX stores, similar to what the author does for Redux (more on that later).
 
-Stuff To Do (Better)
+#### Stuff To Do (Better)
 * Too much going on in layouts/main. Since the Timeline and Settings can each have their own navigation, I think they ought to have their own layout folders.
 
 ### Separating Markup/ Styling/ Logic
@@ -48,15 +48,15 @@ A big point of React is that separation of concerns in frameworks that keep HTML
 3. Most of your components should have very little or no state. Ideally, a component is just a render() function. Even if you have some branching, if you just have a render function that references some props, is it really all that different from Vue.js or Angular markup extensions? This should make it fairly straightforward for someone to change markup without being burdened by having to pick the markup out of business logic.
 4. Building on #3, delay integrating in data sources, like web methods and local stores, until the highest-level component possible. This is the Container pattern. Say we have a UI construct like a social network timeline. Even though a timeline definitely needs data to be useful, we don't put any code about actually fetching the data in the Timeline component itself. We make a Timeline that renders posts based on a prop containing posts. Then we have a TimelineContainer that fetches the data and passes it to the Timeline. I think I did a not-awful job of this in routes/timeline.
 
-Examples:
+#### Examples
 * All components/ layouts/ routes have markup and styles in separate files.
 * Container pattern demonstrated in routes/timeline folder.
 * Very primitive common styling demonstrated on components/button. components/button's styles file gets the color of the button from config/common-styles.js. You'll see the button is yellow in the Settings view.
 
-Other Details
+#### Other Details
 * The Timeline is using a ListView (which does UITableViewController-like stuff in iOS), which requires some state to be maintained. Some folks argue for bringing in the ListView.DataSource from an outside source, but it feels too ListView-specific for me. Nevertheless, I could still pass in a raw array as a prop that could be "cloned" into the DataSource in state, so it's kind of stateless from the consumer's perspective.
 
-Stuff To Do (Better)
+#### Stuff To Do (Better)
 * More global styling
 
 [1] *I've never actually heard a designer complain about this, only programmers saying that designers will complain about this. I'd like to believe that designers find procedural programming logic embedded in HTML tags to be as awkward as I do.*
@@ -71,7 +71,7 @@ Really all I wanted was something that would a) maintain a global state, and b) 
 
 The example so far includes the TimelineContainer and DetailContainer reading messages from the stores/ChatStore.js. In particular TimelineContainer is actually reacting to changes (though there are no real changes happening yet), by observing the ChatStore using ES.next decorators (.e.g, `@observer`). There's a case to be made that a library isn't even necessary yet. Take away the decorators, and ChatStore is just a plain old singleton that could be used anywhere (TimelineContainer would have to manually refresh itself somehow in such a case). The biggest win is that TimelineContainer can read from the same place for both an entire timeline and a single message without having to be aware of each other.
 
-Stuff To Do (Better)
+#### Stuff To Do (Better)
 * Demonstrate changing data (will do this with the compose view).
 * Better strategy for referencing single records in the observable (list) variable in a store. For instance, indexing with dictionaries may make sense.
 * Wire up mock web services. Interested in finding a best practice for dependency injection of web request components into the store, so the store can be unit-tested. I'm too used to Angular requiring this ;-).
@@ -82,7 +82,7 @@ Two types of navigation containers are demonstrated- StackNavigator, and TabNavi
 
 One recently-added nuance- adorning container components with navigation-specific properties in the layout component. See layouts/timeline. This seems to make sense for keeping the layout stuff with the layout stuff.
 
-Stuff To Do (Better)
+#### Stuff To Do (Better)
 * Tab bar icons can be arbitrary React views. This can facilitate stuff like a number badge on a tab. I have an example of this elsewhere and would like to add it here. Actually, NativeBase also has this and may be better to learn how to use theirs.
 * Show Compose view as a modal instead of putting it onto the stack.
 
