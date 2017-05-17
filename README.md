@@ -42,7 +42,7 @@ Stuff To Do (Better)
 
 Credit to [chantastic's Container Components](https://medium.com/@learnreact/container-components-c0e67432e005), [Gustavo Machado's Tips for Styling your React Native Apps](https://medium.com/the-react-native-log/tips-for-styling-your-react-native-apps-3f61608655eb), as well as Mr. Carli above.
 
-A big point of React is that separation of concerns in frameworks that keep HTML and JS in separate file isn't the holy grail, because those two "separate" files are tightly-coupled, anyway. Vue.js buffs say React got too much HTML in my JavaScript, upsetting non-JS-savvy designers who wanted to tweak the markup and CSS. It seems like you can have your React and eat it too (mmm... React) if you follow some rules about what kind of JSX goes where, so, even though it's all JavaScript, at least you're not mixing the right and wrong JavaScripts together:
+A big point of React is that separation of concerns in frameworks that keep HTML and JS in separate file isn't the holy grail, because those two "separate" files are tightly-coupled, anyway. Vue.js buffs say React got too much HTML in my JavaScript, upsetting non-JS-savvy designers who wanted to tweak the markup and CSS [1]. It seems like you can have your React and eat it too (mmm... React) if you follow some rules about what kind of JSX goes where, so, even though it's all JavaScript, at least you're not mixing the right and wrong JavaScripts together:
 1. Separate the "stylesheets" (which are just JS objects) in their own files.
 2. Use common values that are referenced by those indiviual stylesheets (this is what the app/config folder above is for). These are really just glorified constants.
 3. Most of your components should have very little or no state. Ideally, a component is just a render() function. Even if you have some branching, if you just have a render function that references some props, is it really all that different from Vue.js or Angular markup extensions? This should make it fairly straightforward for someone to change markup without being burdened by having to pick the markup out of business logic.
@@ -58,6 +58,8 @@ Other Details
 
 Stuff To Do (Better)
 * More global styling
+
+[1] *I've never actually heard a designer complain about this, only programmers saying that designers will complain about this. I'd like to believe that designers find procedural programming logic embedded in HTML tags to be as awkward as I do.*
 
 ### State/ Data/ Services Layer
 
