@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableHighlight } from 'react-native';
 import PropTypes from 'prop-types';
+import { Text, View, TouchableHighlight } from 'react-native';
 import moment from 'moment';
 import {observer} from 'mobx-react';
 

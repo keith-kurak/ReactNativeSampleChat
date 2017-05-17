@@ -4,61 +4,26 @@
 import React, { Component } from 'react';
 import { Text, View, Platform } from 'react-native';
 
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {
   TabNavigator,
   StackNavigator
 } from 'react-navigation';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-//used directions here to add to XCode: https://github.com/oblador/react-native-vector-icons
+import {TimelineTab} from '../timeline';
+import {SettingsTab} from '../settings';
 
-import {TimelineContainer, DetailContainer} from '../../routes/timeline';
-
-const TimelineScreen = StackNavigator({
-    Home: {
-      screen: TimelineContainer
-    },
-    Detail: {
-      screen: DetailContainer,
-      path: 'messages/:id',
-    }
-  });
-
-TimelineScreen.navigationOptions = {
-    tabBarLabel: 'Home',
-    tabBarIcon: ({ tintColor, focused }) => (
-      <Ionicons
-        name={focused ? 'ios-home' : 'ios-home-outline'}
-        size={26}
-        style={{ color: tintColor }}
-      />
-    ),
-  };
-
-const SettingsScreen = ({ navigation }) => (
-  <View>
-    <Text>settings screen</Text>
-  </View>
-);
-
-SettingsScreen.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ tintColor, focused }) => (
-    <Ionicons
-      name={focused ? 'ios-settings' : 'ios-settings-outline'}
-      size={26}
-      style={{ color: tintColor }}
-    />
-  ),
-};
-
+/**
+* Main tab-based navigation for app
+*/
 const Main = TabNavigator({
   Timeline: {
-    screen: TimelineScreen,
+    screen: TimelineTab,
     path: '',
   },
   Settings: {
-    screen: SettingsScreen,
+    screen: SettingsTab,
     path: 'settings',
   },
 }, {

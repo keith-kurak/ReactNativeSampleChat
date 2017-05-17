@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 import {chatStore} from '../../stores';
@@ -16,3 +17,7 @@ export default class TimelineContainer extends Component {
     );
   }
 }
+
+TimelineContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
