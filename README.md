@@ -108,4 +108,5 @@ More here soon. I started down the snapshot-based testing, got one to work (may 
 
 ### Other Fun Stuff
 
-* check app/index.js for warning suppressions due to react-navigation using deprecated libraries. Stuff is churning so quick that this seems to inevitably happen.
+* Check app/index.js for warning suppressions due to react-navigation using deprecated libraries. Stuff is churning so quick that this seems to inevitably happen.
+* Scores of UNMET PEER DEPENDENCY NPM errors. Seems like NativeBase wants older libraries for a few things. I don't want to roll stuff back because so far it's working well. Other folks at least appear to be in the same boat.
