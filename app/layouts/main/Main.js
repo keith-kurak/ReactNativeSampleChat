@@ -4,8 +4,6 @@
 import React, { Component } from 'react';
 import { Text, View, Platform } from 'react-native';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import {
   TabNavigator,
   StackNavigator
