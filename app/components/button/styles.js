@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import {primaryColor} from '../../config/common-styles';
+
 export default StyleSheet.create({
 
   smallSpace: {
@@ -18,7 +20,7 @@ export default StyleSheet.create({
   },
 
   buttonStyle: {
-    backgroundColor: 'white',
+    backgroundColor: primaryColor,
     borderColor: 'black',
     borderWidth: .5
   },
