@@ -4,10 +4,7 @@
 import React, { Component } from 'react';
 import { Text, View, Platform } from 'react-native';
 
-import {
-  TabNavigator,
-  StackNavigator
-} from 'react-navigation';
+import { TabNavigator } from 'react-navigation';
 
 import {TimelineTab} from '../timeline';
 import {SettingsTab} from '../settings';

@@ -6,6 +6,9 @@ import {observer} from 'mobx-react';
 
 import Styles from './styles';
 
+/**
+ * A single row in the timeline, showing the message and date.
+ */
 @observer
 export default class TimelineRow extends React.Component {
 

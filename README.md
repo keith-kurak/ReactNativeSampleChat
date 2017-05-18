@@ -21,7 +21,14 @@ A few notes:
 3. Run `react-native run-ios`
 
 ### Steps (Android simulator)
-I know they're almost the same, but I haven't run this on Android yet (always a bear installing that, like to put it off to the last minute), so let me make sure it works first.
+1. Start your Android emulator
+2. Run `npm install`
+3. Run `react-native link`
+4. Run `react-native run-android`
+
+Note that you only need to run npm install and react-native link once for both platforms.
+
+Installing Android Studio from scratch accomplished almost all of the steps for setting up React Native for Android. The only other things I had to do was a) install the Marshmallow SDK, and b) add the ~/.profile file specified in the React Native instructions for Android.
 
 ## Concepts
 
@@ -90,9 +97,17 @@ One recently-added nuance- adorning container components with navigation-specifi
 
 The tab bar icons use react-native-vector-icons. Among other things, these require .ttf files to actually be included in the iOS/ Android native projects. `react-native link` actually does this for us. It was failing for about a week because the latest version of the library had issues with a tvOS build scheme or something like that. It seems inevitable that eventually libraries with more complex native integration will need to be added. Since there's reasons to recreate the iOS/ Android projects (e.g., new version of XCode), I think it's important to stick with stuff that reliably works with `react-native link`.
 
-### iOS/ Android-specific controls
+### iOS/ Android-specific UI
 
 This is accomplished simply with the .ios/ .android sub-extensions (is that a term?). So, Button.android.js is used for Android and Button.ios.js is used for iOS. This is working now with components/button. This control can be seen on the Settings tab.
+
+Once I finally ran this on Android, I noticed how grossly my UI violated [Material Design guidelines for tab bars](https://material.io/guidelines/components/tabs.html). Usually an Android tab bar is a sub category below some stack-like navigation, rather than the tab being king like it is in iOS. In Android, the tabs were on top, with the title bar for the stack navigation direcly underneath. It didn't look good. Even moving the tab bar to the bottom for Android didn't help much. Still confusing and cluttered.
+
+I'd still like to figure out how to make tab navigation work well across both platforms (seems like an obvious scenario). For the time being, I used this opportunity to provide different navigation that looks better in Android. In layouts/main, now there are separate Main.platform.js files, and I made some changes to TimelineTab and SettingsTab. Android now uses drawer navigation, while iOS uses a tab bar.
+
+One ugly thing at the moment about this is that there is code in each -Tab file for adding the drawer menu button to the title bar. It's not as easy to componentize these things, because there's just one title bar, but there must be some way to encapsulate things such that, if you add a component to a DrawerNavigator, it automatically gets a drawer open button.
+
+An ugly bit on the iOS side is that the compose window doesn't appear as a modal. Ideally, it would slide from the bottom and not have back button. It seems that one could do such a thing with [this workaround](https://github.com/react-community/react-navigation/issues/707).
 
 ### Third-party control libraries
 
@@ -105,10 +120,6 @@ There's tons of stuff in in [NativeBase](https://nativebase.io/docs/v0.5.7/guide
 [Testing with shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html)
 
 More here soon. I started down the snapshot-based testing, got one to work (may have broken it since then). It looks great, pretty easy to work with. The part I worry about is, say, changing a button and having that invalidate the snapshot of everything that used a button. Therefore, I wonder if shallow rendering (which doesn't render sub-components) could work with snapshotting. Each test would take a snapshot of a shallow render, failing if the code has changed the shallow render since the snapshot. That would avoid the issue of invalidating many tests with a single component change.
-
-### Automated UI Testing with Appium
-
-Give me time. I will get there! Someday.
 
 ### Other Fun Stuff
 

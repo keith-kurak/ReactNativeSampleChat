@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Platform } from 'react-native';
 
 import {StackNavigator} from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -13,9 +13,13 @@ TimelineContainer.navigationOptions = ({ navigation, screenProps }) => ({
     title: 'Timeline',
     headerRight: 
     //this should probably be a modal instead of just another view on the stack- will try that later
-    <Button transparent onPress={() => navigation.navigate('Compose')}>
+    (<Button transparent onPress={() => navigation.navigate('Compose')}>
       <Icon name='ios-create-outline' />
-    </Button>
+    </Button>),
+    headerLeft: Platform.OS === 'ios' ? null :
+    (<Button transparent onPress={() => navigation.navigate('DrawerOpen')}>
+      <Icon name='ios-menu' />
+    </Button>)
   });
 
 /**
