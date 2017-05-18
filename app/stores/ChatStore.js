@@ -2,9 +2,14 @@ import {observable, computed} from "mobx";
 
 import RandomMessageGenerator from '../lib/RandomMessageGenerator'; 
 
+/**
+ * A shared store containing messages. Includes accessor methods for getting all messages or a single message.
+ * Since the messages array is @observable, React components marked as @observer automatically get rerendered when the contents of the store change.
+ */
 class ObservableChatStore {
 
 	constructor() {
+		//no real data yet, generate random data first time stored is used
 		var generator = new RandomMessageGenerator();
 		var randomMessages = generator.generate(20);
 		randomMessages.forEach((message) => {
@@ -34,6 +39,6 @@ class ObservableChatStore {
 	}
 }
 
+//makes a singleton
 const observableChatStore = new ObservableChatStore();
-
 export default observableChatStore;
