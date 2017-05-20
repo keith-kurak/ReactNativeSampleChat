@@ -1,3 +1,3 @@
 import observableChatStore from './ChatStore';
 
-export {observableChatStore as chatStore};
+export { observableChatStore as chatStore };

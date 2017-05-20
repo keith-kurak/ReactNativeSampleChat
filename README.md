@@ -113,6 +113,17 @@ An ugly bit on the iOS side is that the compose window doesn't appear as a modal
 
 There's tons of stuff in in [NativeBase](https://nativebase.io/docs/v0.5.7/guide/what-is-nativebase). So far, I'm just using their Button for the Timeline right header bar button. Zero-fuss native look-and-feel for a bar button.
 
+### Linting
+
+Whoa I just got brutalized by the linter. Tons of stuff learned in the span of 5 minutes fixing like 2% of my errors.
+
+Check out React Native Linting setup recommendations at: [Linting for React Native](https://medium.com/pvtl/linting-for-react-native-bdbb586ff694). These use (AirBnB's pretty exhaustive JS and React standards)[https://github.com/airbnb/javascript].
+
+Quick hits:
+* Apparently if there's only one export from a file I should make it a default. I kind of don't like this because it breaks importing files once I add the second export, but I probably need to eat my brussels sprouts here.
+* Got burned on using PropTypes.object. They want you to use PropTypes.shape() to explicitly define the type of object to expect. Check the [bottom of this thread](https://github.com/yannickcr/eslint-plugin-react/issues/904) for recommendations when you can't possibly know the structure of the object because it's not your's to define. Note to self: look up how to define my own prop types to avoid redundant shape() calls.
+* I setup [ESLint in Visual Studio Code](http://shripalsoni.com/blog/configure-eslint-in-visual-studio-code/). Only automatically lints the open file without using a task runner, but that in and of itself is pretty nice.
+
 ### Unit Testing
 
 [Snapshot-based testing with Jest](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
@@ -120,6 +131,10 @@ There's tons of stuff in in [NativeBase](https://nativebase.io/docs/v0.5.7/guide
 [Testing with shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html)
 
 More here soon. I started down the snapshot-based testing, got one to work (may have broken it since then). It looks great, pretty easy to work with. The part I worry about is, say, changing a button and having that invalidate the snapshot of everything that used a button. Therefore, I wonder if shallow rendering (which doesn't render sub-components) could work with snapshotting. Each test would take a snapshot of a shallow render, failing if the code has changed the shallow render since the snapshot. That would avoid the issue of invalidating many tests with a single component change.
+
+### Package management
+
+I added Yarn. Not looking back.
 
 ### Other Fun Stuff
 

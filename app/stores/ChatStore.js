@@ -1,10 +1,12 @@
-import {observable, computed} from "mobx";
+import { observable, computed } from 'mobx';
 
-import RandomMessageGenerator from '../lib/RandomMessageGenerator'; 
+import RandomMessageGenerator from '../lib/RandomMessageGenerator';
 
 /**
- * A shared store containing messages. Includes accessor methods for getting all messages or a single message.
- * Since the messages array is @observable, React components marked as @observer automatically get rerendered when the contents of the store change.
+ * A shared store containing messages. Includes accessor methods for getting all messages or
+ * a single message.
+ * Since the messages array is @observable, React components marked as @observer automatically
+ * get rerendered when the contents of the store change.
  */
 class ObservableChatStore {
 
