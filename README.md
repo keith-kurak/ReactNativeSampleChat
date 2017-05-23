@@ -39,7 +39,7 @@ Credit to [Spencer Carli's Organizing a React Native Project](https://medium.com
 #### Major Points
 * Nothing of real consequence in the index.ios.js and index.android.js files. Instead, they point to the real starting point at app/index.js.
 * The components/ config/ routes/ layouts structure. I may not be following these exactly, but my interpretation of layouts is that it is for stitching together scenes inside navigation containers, like stacks, and tab bars. Meanwhile, routes are the individual scenes inside of each of those navigation containers (thinking about renaming this to scenes). If this were an iOS storyboard, maybe layouts would be the trunk/ forks in the navigation tree while routes would be branches.
-* Breaking up components/ groups of components into separate component, stylesheet, and index files. You can import from the index in a folder simply by referencing the folder (e.g., `../timeline`). This should make it easy to find the styles in effect for a component and limits the refactoring needed to be done when exports change. I don't think the article said one way or the other, but I've decided things are easier if these indexes are made up of non-default exports (so I don't have to worry about whether or not to use curly braces). routes/timeline (used in layouts/main) is the best example of this so far.
+* Breaking up components/ groups of components into separate component, stylesheet, and index files. You can import from the index in a folder simply by referencing the folder (e.g., `../timeline`). This should make it easy to find the styles in effect for a component and limits the refactoring needed to be done when exports change. <s>I don't think the article said one way or the other, but I've decided things are easier if these indexes are made up of non-default exports (so I don't have to worry about whether or not to use curly braces)</s> The linter doesn't like this, I'll fix single imports to be default. routes/timeline (used in layouts/main) is the best example of this so far.
 * Added my own "stores" folder for MobX stores, similar to what the author does for Redux (more on that later).
 
 #### Stuff To Do (Better)
@@ -121,7 +121,7 @@ Check out React Native Linting setup recommendations at: [Linting for React Nati
 
 Quick hits:
 * Apparently if there's only one export from a file I should make it a default. I kind of don't like this because it breaks importing files once I add the second export, but I probably need to eat my brussels sprouts here.
-* Got burned on using PropTypes.object. They want you to use PropTypes.shape() to explicitly define the type of object to expect. Check the [bottom of this thread](https://github.com/yannickcr/eslint-plugin-react/issues/904) for recommendations when you can't possibly know the structure of the object because it's not your's to define. Note to self: look up how to define my own prop types to avoid redundant shape() calls.
+* Got burned on using PropTypes.object. They want you to use PropTypes.shape() to explicitly define the type of object to expect. Check the [bottom of this thread](https://github.com/yannickcr/eslint-plugin-react/issues/904) for recommendations when you can't possibly know the structure of the object because it's not your's to define. Note to self: look up how to define my own prop types to avoid redundant shape() calls. UPDATE: I overrode this rule because I can't find the PropType for stuff like the "navigation" prop.
 * I setup [ESLint in Visual Studio Code](http://shripalsoni.com/blog/configure-eslint-in-visual-studio-code/). Only automatically lints the open file without using a task runner, but that in and of itself is pretty nice.
 
 ### Unit Testing
@@ -135,6 +135,11 @@ More here soon. I started down the snapshot-based testing, got one to work (may 
 ### Package management
 
 I added Yarn. Not looking back.
+
+### More decisions to make
+
+#### PropTypes vs Flow
+See [this](https://stackoverflow.com/questions/36065185/react-proptypes-vs-flow)
 
 ### Other Fun Stuff
 

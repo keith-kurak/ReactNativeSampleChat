@@ -32,5 +32,6 @@ export default class TimelineRow extends React.Component {
 
 TimelineRow.propTypes = {
   text: PropTypes.string.isRequired,
-  date: PropTypes.object.isRequired
+  date: PropTypes.object.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };

@@ -22,8 +22,6 @@ export default class TimelineContainer extends Component {
 }
 
 TimelineContainer.propTypes = {
-  // this should be PropTypes.navigation,
-  // but I'm missing the include. Seems odd that I'd include the whole thing just for the prop type,
-  // but maybe that's the way you do it.
+  // this should be some kind of navigation prop type, but I can't figure out if that even exists
   navigation: PropTypes.object.isRequired,
 };
