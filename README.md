@@ -71,6 +71,7 @@ A big point of React is that separation of concerns in frameworks that keep HTML
 ### State/ Data/ Services Layer
 
 Credit to [this awesome MobX tutorial](https://mobx.js.org/getting-started.html).
+Something else cool [Why one project chose MobX](https://formidable.com/blog/2016/06/02/why-we-chose-mobx-over-redux-for-spectacle-editor/).
 
 I'm sure Redux is great. Lots of folks swear by it for scaling huge projects with lots of developers. I like a well-thought-out state layer as much as anyone, but I found my brain exhausted by Redux, and in particular, thinking about how I would explain it to someone else. My breaking point was that, just as I was starting to understand the Todo app example, I find that a real example with asynchronous loading is a completely different animal. I really wish I could will myself to be more passionate about immutability/ pure functions. Someday I'll be able to sit with the cool kids.
 
